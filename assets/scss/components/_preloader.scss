@@ -1,0 +1,108 @@
+@use '../utils' as *;
+
+/*=============================
+    09. Preloader
+===============================*/
+
+.preloader{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 99999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  background-color: var(--td-common-white);
+}
+
+.loader,
+.preloader-logo {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  background-image: url('../img/logo/logo-preview.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: preloaderPulse 1.5s ease-in-out infinite;
+}
+
+.preloader::before,
+.preloader::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  font-size: 26px;
+  line-height: 1;
+  animation: orbit 3.5s linear infinite;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+}
+
+.preloader::before {
+  content: "🏀";
+  transform: rotate(90deg) translateX(80px) rotate(-90deg);
+  animation-delay: -0.875s;
+  filter: drop-shadow(0 4px 6px rgba(255, 107, 53, 0.35));
+}
+
+.preloader::after {
+  content: "🏆";
+  transform: rotate(270deg) translateX(80px) rotate(-270deg);
+  animation-delay: -2.625s;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.loader::before,
+.loader::after,
+.preloader-logo::before,
+.preloader-logo::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  font-size: 32px;
+  line-height: 1;
+  animation: orbit 3s linear infinite;
+  pointer-events: none;
+}
+
+.loader::before,
+.preloader-logo::before {
+  content: "🏀";
+  transform: rotate(0deg) translateX(70px) rotate(-0deg);
+  filter: drop-shadow(0 4px 6px rgba(255, 107, 53, 0.35));
+}
+
+.loader::after,
+.preloader-logo::after {
+  content: "🏆";
+  transform: rotate(180deg) translateX(70px) rotate(-180deg);
+  animation-delay: -1.5s;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
+}
+
+@keyframes preloaderPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(70px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(70px) rotate(-360deg);
+  }
+}

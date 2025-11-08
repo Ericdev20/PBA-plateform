@@ -1,0 +1,10 @@
+Retour sur page des votes 
+
+
+-Le timer de decompte de fin de vote , le bloc de cout par vote  et celui du reglement doit etre en haut 
+
+-Les encarts de votes ne scrollent pas à l'interieur et se confondent vers la fin avec le footer bien du coup n'affichent pas la liste au complet .
+
+-Aussi faudrait afficher le rangs de chaque candidat sur chaque encart
+
+-Lorsqu'on clique sur voter faudrait ouvrir un modal jolie arrière plan graciale qui recupère le nombre de vote .
